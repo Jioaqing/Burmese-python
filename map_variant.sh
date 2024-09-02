@@ -88,7 +88,7 @@ for SAMPLE in "${SAMPLES[@]}"; do
 
     # 12. Filter variants
     echo "Step 12: Filtering variants"
-	gatk VariantFiltration -V raw.vcf  --filter-expression "QD < 2.0 || MQ < 40.0 || FS > 60.0 || SOR > 3.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0 || QUAL < 30.0" 
+	gatk VariantFiltration -V raw.vcf  --filter-expression "QD < 2.0  || FS > 60.0 || DP < 4.0 || ReadPosRankSum < -8.0 || QUAL < 30.0" 
 	--filter-name "PASS" -O raw.filter.vcf
 	
 	#13.Select SNPs
